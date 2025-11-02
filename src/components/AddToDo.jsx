@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-function AddToDo({newitems}) {
+function AddToDo({ newitems }) {
   const [todoname, setTodoname] = useState("");
   const [date, setDate] = useState("");
 
@@ -14,7 +14,7 @@ function AddToDo({newitems}) {
 
   const handlebutton = () => {
     newitems(todoname, date);
-    setTodoname("")
+    setTodoname("");
     setDate("");
   };
   return (

@@ -1,6 +1,6 @@
 import React from "react";
 
-function TodoItems({ todolist }) {
+function TodoItems({ todolist, onDelete }) {
   return (
     <>
       <div className="mt-10">
@@ -12,12 +12,17 @@ function TodoItems({ todolist }) {
             >
               <div className="font-semibold w-[50%] border p-1 rounded">
                 {item.name}
-              </div>-     
+              </div>
+              -
               <div className="border p-1 rounded w-[50%] bg font-semibold">
                 {item.date}
               </div>
-
-              <button className="bg-red-500 text-white rounded-md p-1 ml-2">Delete</button>
+              <button
+                className="bg-red-500 text-white rounded-md p-1 ml-2"
+                onClick={() => onDelete(item.name)}
+              >
+                Delete
+              </button>
             </li>
           ))}
         </ul>
