@@ -10,6 +10,7 @@ function AddToDo({ newitems }) {
   };
   const handledate = (e) => {
     setDate(e.target.value);
+    
   };
 
   const handlebutton = () => {

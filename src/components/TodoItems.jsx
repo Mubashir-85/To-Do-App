@@ -11,7 +11,7 @@ function TodoItems({ todolist, onDelete }) {
               className="items-center gap-4 w-70% border  bg flex border-gray-300 rounded-md p-2 mb-2 w-96"
             >
               <div className="font-semibold w-[50%] border p-1 rounded">
-                {item.name}
+                {item.name.toUpperCase()}
               </div>
               -
               <div className="border p-1 rounded w-[50%] bg font-semibold">
@@ -19,7 +19,10 @@ function TodoItems({ todolist, onDelete }) {
               </div>
               <button
                 className="bg-red-500 text-white rounded-md p-1 ml-2"
-                onClick={() => onDelete(item.name)}
+                onClick={() =>
+                  alert("are you sure you want to delete this item?") ||
+                  onDelete(item.name)
+                }
               >
                 Delete
               </button>
