@@ -4,11 +4,12 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 import AddToDo from "./components/AddToDo.jsx";
 import TodoItems from "./components/TodoItems.jsx";
+import { ToDoContext } from "./components/Context.jsx";
 
 function App() {
   const [todo, setTodo] = useState([]);
 
-  const newItems = (itemname, itemdate) => {
+  const addnewItems = (itemname, itemdate) => {
     if (itemname === "" || itemdate === "") {
       alert("Please enter both task name and date");
       return;
@@ -23,11 +24,13 @@ function App() {
 
   return (
     <>
-      <center>
-        <h1 className="text-4xl font-bold mt-5">To-Do App</h1>
-        <AddToDo newitems={newItems} />
-        <TodoItems todolist={todo} onDelete={handleDelete} />
-      </center>
+      <ToDoContext.Provider value={{ todo, addnewitems :addnewItems, handleDelete }}>
+        <center>
+          <h1 className="text-4xl font-bold mt-5">To-Do App</h1>
+          <AddToDo />
+          <TodoItems />
+        </center>
+      </ToDoContext.Provider>
     </>
   );
 }
