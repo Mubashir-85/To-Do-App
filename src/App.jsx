@@ -22,9 +22,19 @@ function App() {
     setTodo(newList);
   };
 
+  const handleUpate = (oldName, newName, newDate)=>{
+    const updateList = todo.map((item)=>{
+      if(item.name === oldName){
+        return {name: newName, date: newDate};
+      }
+      return item;
+    }) 
+    setTodo(updateList);
+  }
+
   return (
     <>
-      <ToDoContext.Provider value={{ todo, addnewitems :addnewItems, handleDelete }}>
+      <ToDoContext.Provider value={{ todo, addnewitems :addnewItems, handleDelete, handleUpate }}>
         <center>
           <h1 className="text-4xl font-bold mt-5">To-Do App</h1>
           <AddToDo />
